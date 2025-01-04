@@ -29,7 +29,7 @@ const WeekView = ({ currentDate, appointments }) => {
           const date = new Date(startOfWeek);
           date.setDate(startOfWeek.getDate() + DAYS.indexOf(day));
           return (
-            <div key={day} className="text-center p-3 font-medium text-gray-700">
+            <div key={day} className="text-center p-3 font-medium text-gray-700" style={{ backgroundColor: colors[index] }}>
               {day}
               <br />
               {date.getDate()}

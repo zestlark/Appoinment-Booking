@@ -68,6 +68,8 @@ const AgendaView = ({ currentDate, appointments }) => {
                     </div>
                 );
             })}
+
+            {appointments.length === 0 && <div className="h-[80vh] flex items-center text-center w-full justify-center capitalize">no Appoinemnts yet </div>}
         </div>
     );
 };

@@ -31,7 +31,7 @@ const MonthView = ({ currentDate, appointments }) => {
     <div>
       <div className="grid grid-cols-7 border gap-0 mb-0 rounded-t-md overflow-hidden">
         {DAYS.map((day, index) => (
-          <div key={day} className="text-center first-of-type::rounded-tl-md last-of-type:rounded-tr-md p-3 border font-medium text-gray-700">
+          <div key={day} className="text-center first-of-type::rounded-tl-md last-of-type:rounded-tr-md p-3 border font-medium text-gray-700" style={{ backgroundColor: colors[index] }}>
             {day}
           </div>
         ))}
