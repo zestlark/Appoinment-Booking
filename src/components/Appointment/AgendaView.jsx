@@ -7,6 +7,17 @@ const AgendaView = ({ currentDate, appointments }) => {
     };
 
     // Function to format the date to show weekday, month, date, and year
+    const groupByDate = (appointments) => {
+        return appointments.reduce((groups, appointment) => {
+            const date = new Date(appointment.start).toISOString().split("T")[0]; // Extract YYYY-MM-DD
+            if (!groups[date]) {
+                groups[date] = [];
+            }
+            groups[date].push(appointment);
+            return groups;
+        }, {});
+    };
+    
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const options = {
@@ -17,18 +28,7 @@ const AgendaView = ({ currentDate, appointments }) => {
         };
         return new Intl.DateTimeFormat("default", options).format(date);
     };
-
-    // Group appointments by date
-    const groupByDate = (appointments) => {
-        return appointments.reduce((groups, appointment) => {
-            const date = new Date(appointment.start).toLocaleDateString(); // Key is the date
-            if (!groups[date]) {
-                groups[date] = [];
-            }
-            groups[date].push(appointment);
-            return groups;
-        }, {});
-    };
+    
 
     const groupedAppointments = groupByDate(appointments);
 
@@ -40,10 +40,10 @@ const AgendaView = ({ currentDate, appointments }) => {
 
                 return (
                     <div key={date} className="flex justify-between border-b pb-4">
-                        <div className="w-[20%] px-5">
+                        <div className="md:w-[20%] max-w-[40%] px-5">
                             <div className="font-medium text-lg">{formattedDate}</div>
                         </div>
-                        <div className="w-[80%] space-y-2">
+                        <div className="md:w-[80%] space-y-2">
                             {groupedAppointments[date].map((appointment) => {
                                 const appointmentDate = new Date(appointment.start);
                                 return (
