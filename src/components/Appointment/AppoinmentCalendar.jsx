@@ -76,9 +76,9 @@ const AppoinmentCalendar = () => {
 
   return (
     <div className="p-5">
-      <div className="flex items-center justify-between mb-10 relative">
+      <div className="flex flex-col-reverse gap-7 md:gap-0 md:flex-row items-center justify-between mb-10 relative">
         {/* timeline switch */}
-        <div className="flex justify-center w-[420px] bg-gray-100 relative rounded-lg">
+        <div className="flex justify-center w-full md:w-[420px] bg-gray-100 relative rounded-lg">
           <div
             className={`toggle h-full bg-blue-500 absolute z-0 rounded-lg }`} style={{ left: `${(100 / views.length) * (views.indexOf(view))}%`, width: 100 / views.length + "%" }}
           ></div>
@@ -95,7 +95,7 @@ const AppoinmentCalendar = () => {
         </div>
 
         {/* back next and month year */}
-        <div className="flex items-center justify-center gap-4 space-x-2 absolute left-[50%] -translate-x-[50%] ">
+        <div className="flex items-center justify-between w-full md:w-auto md:justify-center gap-4 space-x-2 md:absolute left-[50%] md:-translate-x-[50%]">
           <button
             onClick={prevPeriod}
             className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 text-xl font-bold flex justify-center items-center"
@@ -127,7 +127,7 @@ const AppoinmentCalendar = () => {
         {/* add new btn */}
         <button
           onClick={() => setIsModalOpen(true)}
-          className={` bg-${primaryColor}-500 flex items-center justify-center gap-3 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}>
+          className={` bg-${primaryColor}-500 w-full  md:w-auto flex items-center justify-center gap-3 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2`}>
           <FaPlus /> New Appointment
         </button>
       </div>
